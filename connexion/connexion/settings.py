@@ -58,6 +58,7 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = 'recommend.AuthUser'
 AUTH_USER_MODEL = 'utilisateurs.User'
+INTERNAL_IPS = ['127.0.0.1']
 ROOT_URLCONF = 'connexion.urls'
 
 TEMPLATES = [
