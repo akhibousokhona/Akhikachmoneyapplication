@@ -2,7 +2,7 @@ from django.urls import path
 from .views import inscription,log_in,log_out,envoie,etat_transaction,retrait,retrait_destinateur,vente_credit
 from . import views
 urlpatterns = [
-    path('', views.log_in, name='log_in'),
+    #path('', views.log_in, name='log_in'),
     path('inscription/', inscription, name='inscription'),
     path('envoie/<int:user_id>', envoie, name='envoie'),
     path('retrait/<int:user_id_rt>', retrait, name='retrait'),

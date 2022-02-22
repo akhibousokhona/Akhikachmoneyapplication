@@ -150,5 +150,5 @@ def vente_credit(request):
     return render(request,'utilisateurs/ventecredit.html')
 def log_out(request):
     logout(request)
-    return redirect(reverse('utilisateurs:log_in'))
+    return redirect(reverse('log_in'))
     
