@@ -1,0 +1,129 @@
+<!-- Copyright (c) <2016>, <Kachallah Abagana Mahamat et Akhibou Sokhona>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
+
+{% extends 'utilisateurs/base.html' %}
+{% block content %}
+  <section class="main-content">
+    <div class="container flex">
+      <div class="user-profil">
+        <div class="professional-info">
+          <form action = "" method = "POST">
+            {% csrf_token %}
+          <h4>Expéditeur</h4>
+
+          <div class="form-group">
+            <input type="text" name="nom_exp" class="form-control {% if form.nom_exp.errors %}is-invalid{% endif %}" id="id_nom_exp"
+              placeholder="Nom" value ='{{ form.nom_exp.value|default:"" }}' required />
+            {% if form.nom_exp.errors %}
+              <div class="invalid-feedback">{{ form.nom_exp.errors }}</div>
+              {% endif %}
+          </div>
+
+            <div class="form-group">
+              <input type="text" name="prenom_exp" class="form-control {% if form.prenom_exp.errors %}is-invalid{% endif %}" id="id_prenom_exp"
+                placeholder="Prénom" value ='{{ form.prenom_exp.value|default:"" }}' required />
+              {% if form.prenom_exp.errors %}
+                <div class="invalid-feedback">{{ form.prenom_exp.errors }}</div>
+                {% endif %}
+            </div>
+
+              <div class="form-group">
+                <input type="text" name="phone_exp" class="form-control {% if form.phone_exp.errors %}is-invalid{% endif %}" id="id_phone_exp"
+                  placeholder="Téléphone" value ='{{ form.phone_exp.value|default:"" }}' required />
+                {% if form.phone_exp.errors %}
+                  <div class="invalid-feedback">{{ form.phone_exp.errors }}</div>
+                  {% endif %}
+              </div>    
+          <h4>Bénéficiaire</h4>
+          <div class="form-group">
+            <input type="text" name="nom_benef" class="form-control {% if form.nom_benef.errors %}is-invalid{% endif %}" id="id_nom_benef"
+              placeholder="Nom" value ='{{ form.nom_benef.value|default:"" }}' required />
+            {% if form.nom_benef.errors %}
+              <div class="invalid-feedback">{{ form.nom_benef.errors }}</div>
+              {% endif %}
+          </div>  
+            <div class="form-group">
+              <input type="text" name="prenom_benef" class="form-control {% if form.prenom_benef.errors %}is-invalid{% endif %}" id="id_prenom_benef"
+                placeholder="Prénom" value ='{{ form.prenom_benef.value|default:"" }}' required />
+              {% if form.prenom_benef.errors %}
+                <div class="invalid-feedback">{{ form.prenom_benef.errors }}</div>
+                {% endif %}
+            </div> 
+      
+              <div class="form-group">
+                <input type="text" name="phone_benef" class="form-control {% if form.phone_benef.errors %}is-invalid{% endif %}" id="id_phone_benef"
+                  placeholder="Téléphone" value ='{{ form.phone_benef.value|default:"" }}' required />
+                {% if form.phone_benef.errors %}
+                  <div class="invalid-feedback">{{ form.phone_benef.errors }}</div>
+                  {% endif %}
+              </div> 
+           <h4>Transaction</h4>
+          <div class="form-group">
+            <input type="text" name="montant" class="form-control {% if form.montant.errors %}is-invalid{% endif %}" id="id_montant"
+              placeholder="Montant" value ='{{ form.montant.value|default:"" }}' required />
+            {% if form.montant.errors %}
+              <div class="invalid-feedback">{{ form.montant.errors }}</div>
+              {% endif %}
+          </div> 
+          <div class="form-group">
+            <input type="text" name="commission" class="form-control {% if form.commission.errors %}is-invalid{% endif %}" id="id_commission"
+              placeholder="Commission" value ='{{ form.commission.value|default:"" }}' required />
+            {% if form.commission.errors %}
+              <div class="invalid-feedback">{{ form.commission.errors }}</div>
+              {% endif %}
+          </div> 
+          <!--div class="form-group">
+            <input type="text" name="status" class="form-control {% if form.status.errors %}is-invalid{% endif %}" id="id_status"
+              placeholder="status" value ='{{ form.status.value|default:"" }}' required />
+            {% if form.status.errors %}
+              <div class="invalid-feedback">{{ form.status.errors }}</div>
+              {% endif %}
+          </div-->
+          
+          <!--input type="text" placeholder="Total" name = "total" required  /-->
+		      <!--h4 >Code d'envoi : <img src="captcha.php" alt="CAPTCHA" /> </h4-->
+          
+          <!--button href="#" class="btn--success btn--large btn-profil" name="visualiser" value="Pré-visualiser" data-reveal-id="file-tool">Pré-visualiser</button-->
+		      <button type="submit" class="btn--success btn--large btn-profil">Envoyer</button>
+          </form>
+        </div>
+    </div>
+    </div>
+  
+   <div id="file-tool" class="reveal-modal file-upload" data-reveal aria-labelledby="firstModalTitle"
+       aria-hidden="true"
+       role="dialog">
+    <div class="reveal-modal__title">
+      <h4>Envoie</h4>
+    </div>
+    <div class="reveal-modal__body reveal__share">
+      <form action="" class="">
+        
+        <div class="paste-area">
+          <p> <a href="#">Vue Doc Koonda Box / Acces Disque Dur Ordinateur</a></p>
+         
+        </div>
+
+        <p class="form__actions">
+          <span class="buttons">
+            <button class="ripple btn--cancel">Annuler</button>
+            <button class="ripple btn--success">Valider</button>
+          </span>
+        </p>
+      </form>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+  </section>
+  {% endblock %}
+
+ 
+

@@ -1,0 +1,110 @@
+<!-- Copyright (c) <2016>, <Kachallah Abagana Mahamat et Akhibou Sokhona>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
+
+{% extends 'utilisateurs/base.html' %}
+{% block content %}
+  <section class="main-content">
+    <div class="container flex">
+      <div class="user-profil">
+        <div class="professional-info">
+          
+          <form action = "{% url 'utilisateurs:retrait_destinateur' %}" method = "POST">
+            {% csrf_token %}
+          <h4>Expediteur</h4>
+          
+           <input type="hidden" id="id_id"  class="form-control {% if form.id.errors %}is-invalid{% endif %}" name = "id" value="{{ form.id.value|default:retrai.id }}" />
+           {% if form.id.errors %}
+          <div class="invalid-feedback">{{ form.id.errors }}</div>
+          {% endif %}
+
+           <input type="hidden" id="id_code" class="form-control {% if form.code.errors %}is-invalid{% endif %}" name = "code" value="{{ form.code.value|default:retrai.code }}"  />
+           {% if form.code.errors %}
+           <div class="invalid-feedback">{{ form.code.errors }}</div>
+           {% endif %}
+ 
+          <input type="text"  id="id_nom_exp" readonly="true" class="form-control {% if form.nom_exp.errors %}is-invalid{% endif %}" name = "nom_exp" value="{{ form.nom_exp.value|default:retrai.nom_exp }}" />
+          {% if form.nom_exp.errors %}
+           <div class="invalid-feedback">{{ form.nom_exp.errors }}</div>
+           {% endif %}
+          
+          <input type="text"  id="id_prenom_exp" readonly="true" class="form-control {% if form.prenom_exp.errors %}is-invalid{% endif %}" name = "prenom_exp" value="{{ form.prenom_exp.value|default:retrai.prenom_exp }}" />
+          {% if form.prenom_exp.errors %}
+           <div class="invalid-feedback">{{ form.prenom_exp.errors }}</div>
+           {% endif %}
+          
+
+          <input type="text"  id="id_phone_exp" readonly="true" class="form-control {% if form.phone_exp.errors %}is-invalid{% endif %}" name = "phone_exp" value="{{ form.phone_exp.value|default:retrai.phone_exp }}"  />
+          {% if form.phone_exp.errors %}
+          <div class="invalid-feedback">{{ form.phone_exp.errors }}</div>
+          {% endif %}
+
+          <h4>Beneficiaire</h4>
+          <input type="text" id="id_nom_benef" readonly="true" class="form-control {% if form.nom_benef.errors %}is-invalid{% endif %}"  name = "nom_benef" value="{{ form.nom_benef.value|default:retrai.nom_benef }}"  />
+          {% if form.nom_benef.errors %}
+          <div class="invalid-feedback">{{ form.nom_benef.errors }}</div>
+          {% endif %}
+          
+          <input type="text"  id="id_prenom_benef" readonly="true" class="form-control {% if form.prenom_benef.errors %}is-invalid{% endif %}" name = "prenom_benef" value="{{ form.prenom_benef.value|default:retrai.prenom_benef }}"  />
+          {% if form.prenom_benef.errors %}
+          <div class="invalid-feedback">{{ form.prenom_benef.errors }}</div>
+          {% endif %}
+         
+          <input type="text"  id="id_phone_benef" readonly="true" class="form-control {% if form.phone_benef.errors %}is-invalid{% endif %}" name = "phone_benef" value="{{ form.phone_benef.value|default:retrai.phone_benef}}"  />
+          {% if form.phone_benef.errors %}
+          <div class="invalid-feedback">{{ form.phone_benef.errors }}</div>
+          {% endif %}
+          
+          <h4>Transaction</h4>
+          <input  type="text"  id="id_montant" readonly="true" class="form-control {% if form.montant.errors %}is-invalid{% endif %}" name = "montant" value="{{ form.montant.value|default:retrai.montant }}" />
+          {% if form.montant.errors %}
+          <div class="invalid-feedback">{{ form.montant.errors }}</div>
+          {% endif %}
+
+
+          <input  type="text"  id="id_commission" readonly="true" class="form-control {% if form.commission.errors %}is-invalid{% endif %}" name = "commission" value="{{ form.commission.value|default:retrai.commission }}" />
+          {% if form.commission.errors %}
+          <div class="invalid-feedback">{{ form.commission.errors }}</div>
+          {% endif %}
+          
+          <input type="text"  id="id_total" readonly="true" class="form-control {% if form.total.errors %}is-invalid{% endif %}" name = "total" value="{{ form.total.value|default:retrai.total }}" />
+          {% if form.total.errors %}
+          <div class="invalid-feedback">{{ form.total.errors }}</div>
+          {% endif %}
+          
+          <input type="text"  id="id_type_piece" class="form-control {% if form.type_piece.errors %}is-invalid{% endif %}" placeholder="Type de piece" name = "type_piece" value='{{ form.type_piece.value|default:"" }}'' />
+          {% if form.type_piece.errors %}
+          <div class="invalid-feedback">{{ form.type_piece.errors }}</div>
+          {% endif %}
+
+            <!--select class="form-control" class="form-control {% if form.type_piece.errors %}is-invalid{% endif %}" id="id_type_piece" name = "type_piece"  required>
+             <option value='{{ form.type_piece.value|default:"" }}'>CNI</option>
+             <option value='{{ form.type_piece.value|default:"" }}'>Passport</option>
+             {% if form.type_piece.errors %}
+          <div class="invalid-feedback">{{ form.type_piece.errors }}</div>
+          {% endif %}
+          </select-->
+         
+          <input type="text"  class="form-control {% if form.numero_piece.errors %}is-invalid{% endif %}" placeholder="Numéro Piece" id="id_numero_piece" name = "numero_piece" value='{{ form.numero_piece.value|default:"" }}' required  />
+          {% if form.numero_piece.errors %}
+          <div class="invalid-feedback">{{ form.numero_piece.errors }}</div>
+          {% endif %}
+
+		      <button href="#" class="btn--success btn--large btn-profil" name="envoyer" value="Envoyer">Valider</button>
+          </form>
+      
+        </div>
+    </div>
+    </div>
+
+  </section>
+  {% endblock %}
+
+

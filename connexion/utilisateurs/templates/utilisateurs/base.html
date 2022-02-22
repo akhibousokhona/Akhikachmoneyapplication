@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>akhikachmoney : {{request.session.username}}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static '../static/utilisateurs/css/main.css' %}">
+  <script src="{% static '../static/utilisateurs/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+  <script src="{% static '../static/utilisateurs/js/vendor/scotchPanels.min.js' %}"></script>
+</head>
+<body>
+  <aside id="sidebar-nav" class="pushy pushy-left">
+    <nav>
+      <h1 class="text-center"><a href="{% url 'utilisateurs:log_in' %}"><img src="../../static/utilisateurs/img/logo.png" alt="logo"/></a></h1>
+      <ul>
+        
+        <li><a href="{% url 'utilisateurs:envoie' request.user.id %}"><span><i class="icon icon-projet"><img src="../../static/utilisateurs/svg/icon_folder.svg" alt=""/></i></span><span>Envoi</span></a></li>
+        
+        <li><a href="{% url 'utilisateurs:retrait' request.user.id %}"><span><i class="icon icon-tools"><img src="../../static/utilisateurs/svg/icon_tool.svg" alt=""/></i></span> <span>Retrait</span></a></li>
+        <li><a href="{% url 'utilisateurs:etat_transaction' request.user.id %}"><span><i class="icon icon-message"><img src="../../static/utilisateurs/svg/icon_discussion.svg" alt=""/></i></span> <span>Etats Transactions</span></a></li>
+        <li><a href="{% url 'utilisateurs:vente_credit' %}"><i class="mdi mdi-information-outline"></i> Vente de Crédit</a></li>
+      </ul>
+    </nav>
+  </aside><!-- Site Overlay -->
+<div class="site-overlay"></div>
+
+<div id="container">
+  <header class="site-header">
+    <div class="container flex">
+      <div class="left-side flex">
+        <a href="javascript:" class="menu-btn"><i class="mdi mdi-menu"></i></a>
+        <!--p><img src="../assets/svg/icon_folder.svg" alt=""/></p-->
+        <h3><a href="{% url 'utilisateurs:log_in' %}"><i class="icon project"></i> AkhiKachMoney</a></h3>
+      </div>
+    <div class="right-side flex"> 
+        <a href="#" id="user"> {{request.session.username}}<i class="mdi mdi-chevron-down"></i></a>
+      </div>
+    </div>
+    <ul class="user-options">
+      <li><p></p></li>
+      <li><a href="{% url 'utilisateurs:logout' %}"><i class="mdi mdi-logout"></i>Deconnexion</a></li>
+      <li><a href="#"><i class="mdi mdi-logout"></i>Paramètre</a></li>
+    </ul>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <footer>
+  
+    <p><strong>AkhiKachMoney Copyright 2022</strong><strong>Develop by Akhibou</strong> <a href=""></a> <a href="">Contact</a></p>
+   </footer>
+ 
+ <script src="{% static '../static/utilisateurs/js/plugins.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/foundation.min.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/foundation.tab.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/foundation.reveal.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/foundation.equalizer.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/sweetalert.min.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/vendor/pushy.min.js' %}"></script>
+ <script src="{% static '../static/utilisateurs/js/main.js' %}"></script>
+ </html>
+    
+  

@@ -1,0 +1,44 @@
+
+
+{% extends 'utilisateurs/base.html' %}
+{% block content %}
+		<div class="content" id="tools">
+          <table border=1 width="50%">
+
+
+            <thead >
+				<tr >
+					<th>NomExp</th>
+					<th>PreExp</th>
+		
+					<th>NomBen</th>
+					<th>PreBen</th>
+				
+					<th>montant</th>
+					<th>Comm</th>
+					
+					<th>Code</th>
+					<th>status</th>
+									
+					<th>dateTrans</th>
+				</tr>
+				</thead>
+           		 <tbody>
+					{% for transaction in etat_transaction %}
+						<tr>
+							<td>{{transaction.nom_exp}}</td>
+							<td>{{transaction.prenom_exp}}</td>
+							<td>{{transaction.nom_benef}}</td>
+							<td>{{transaction.prenom_benef}}</td>
+							<td>{{transaction.montant}}</td>
+							<td>{{transaction.commission}}</td>
+							<td>{{transaction.code}}</td>
+							<td>{{transaction.status}}</td>
+							<td>{{transaction.date_transaction}}</td>
+							{% endfor %}
+						</tr>
+				</table>
+				</div>
+{% endblock %}
+					
+

@@ -1,0 +1,18 @@
+null
+Si True, Django stockera les valeurs vides comme NULLdans la base de données. La valeur par défaut est False.
+
+
+##################################
+blank
+Si True, le champ est autorisé à être vide. La valeur par défaut est False.
+###################################
+choices
+Une séquence de 2-tuples à utiliser comme choix pour ce champ. Si cela est donné, le widget de formulaire
+par défaut sera une boîte de sélection au lieu du champ de texte standard et limitera les choix aux choix donnés.
+
+
+environnement virtuelle
+> mkdir myproject
+> cd myproject
+> py -3 -m venv venv
+> venv\Scripts\activate
