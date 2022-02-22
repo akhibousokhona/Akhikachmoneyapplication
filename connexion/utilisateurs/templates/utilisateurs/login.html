@@ -17,7 +17,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <div class="professional-info">
   
           <h4>Se Connecter</h4>
-          <form action="{% url 'utilisateurs:log_in' %}" method="POST">
+          <form action="{% url 'log_in' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
               <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email"

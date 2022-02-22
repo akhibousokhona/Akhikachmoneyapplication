@@ -20,7 +20,7 @@
 <body>
   <aside id="sidebar-nav" class="pushy pushy-left">
     <nav>
-      <h1 class="text-center"><a href="{% url 'utilisateurs:log_in' %}"><img src="../../static/utilisateurs/img/logo.png" alt="logo"/></a></h1>
+      <h1 class="text-center"><a href="{% url 'log_in' %}"><img src="../../static/utilisateurs/img/logo.png" alt="logo"/></a></h1>
       <ul>
         
         <li><a href="{% url 'utilisateurs:envoie' request.user.id %}"><span><i class="icon icon-projet"><img src="../../static/utilisateurs/svg/icon_folder.svg" alt=""/></i></span><span>Envoi</span></a></li>
@@ -39,7 +39,7 @@
       <div class="left-side flex">
         <a href="javascript:" class="menu-btn"><i class="mdi mdi-menu"></i></a>
         <!--p><img src="../assets/svg/icon_folder.svg" alt=""/></p-->
-        <h3><a href="{% url 'utilisateurs:log_in' %}"><i class="icon project"></i> AkhiKachMoney</a></h3>
+        <h3><a href="{% url 'log_in' %}"><i class="icon project"></i> AkhiKachMoney</a></h3>
       </div>
     <div class="right-side flex"> 
         <a href="#" id="user"> {{request.session.username}}<i class="mdi mdi-chevron-down"></i></a>
