@@ -32,7 +32,7 @@ else:
 
 #ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['akhibousokhona.herokuapp.com']
+ALLOWED_HOSTS = ['akhikachmoney.herokuapp.com']
 
 # Application definition
 
