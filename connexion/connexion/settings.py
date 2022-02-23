@@ -58,7 +58,6 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = 'recommend.AuthUser'
 AUTH_USER_MODEL = 'utilisateurs.User'
-INTERNAL_IPS = ['127.0.0.1']
 ROOT_URLCONF = 'connexion.urls'
 
 TEMPLATES = [
@@ -88,10 +87,10 @@ WSGI_APPLICATION = 'connexion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'utilisateurs',
-        'USER': 'root',
-        'PASSWORD': 'passer',
-        'HOST': 'localhost',
+        'NAME': 'heroku_c2121d45a2a513b',
+        'USER': 'b67df99177e309',
+        'PASSWORD': '6e99d8ad',
+        'HOST': 'us-cdbr-east-05.cleardb.net',
         'PORT': '3306',
     }
 }
